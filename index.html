@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabor Urbano | Resto & Delivery</title>
+  <style>
+    /* Reset & Variables Globale */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    :root {
+      --primary: #ff4757;
+      --primary-hover: #e84118;
+      --dark: #2f3542;
+      --light: #f1f2f6;
+      --white: #ffffff;
+      --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    body {
+      background-color: #f7f9fb;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header & Navegación */
+    header {
+      background-color: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-cart {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn-cart:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80') center/cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Sección Menú */
+    .menu-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .grid-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .btn-add {
+      background-color: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-add:hover {
+      background-color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado / Navegación -->
+  <header>
+    <nav>
+      <a href="#" class="logo">🍔 SaborUrbano</a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="btn-cart">🛒 Carrito (0)</button>
+    </nav>
+  </header>
+
+  <!-- Banner Principal -->
+  <section class="hero" id="inicio">
+    <h1>La Mejor Comida a un Clic</h1>
+    <p>Platillos deliciosos preparados al momento y entregados en tu puerta.</p>
+  </section>
+
+  <!-- Menú de Comidas -->
+  <main class="menu-container" id="menu">
+    <h2 class="section-title">Platillos Destacados</h2>
+    
+    <div class="grid-menu">
+      
+      <!-- Producto 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Hamburguesa">
+        <div class="card-body">
+          <h3 class="card-title">Hamburguesa Clásica</h3>
+          <p class="card-text">Carne de res 100% jugosa, queso cheddar, lechuga, tomate y salsa especial.</p>
+          <div class="card-footer">
+            <span class="price">$8.99</span>
+            <button class="btn-add">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza">
+        <div class="card-body">
+          <h3 class="card-title">Pizza Pepperoni</h3>
+          <p class="card-text">Masa crujiente artesanal, salsa de tomate natural, queso mozzarella y pepperoni.</p>
+          <div class="card-footer">
+            <span class="price">$12.50</span>
+            <button class="btn-add">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Tacos">
+        <div class="card-body">
+          <h3 class="card-title">Tacos al Pastor</h3>
+          <p class="card-text">Tres tacos de carne marinada con piña, cilantro y cebolla picada.</p>
+          <div class="card-footer">
+            <span class="price">$7.00</span>
+            <button class="btn-add">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer id="contacto">
+    <p>&copy; 2026 Sabor Urbano. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
